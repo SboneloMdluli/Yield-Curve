@@ -1,7 +1,7 @@
 package service;
 
 public enum Level {
-    BID,
-    ASK,
-    MID
+  BID,
+  ASK,
+  MID
 }
