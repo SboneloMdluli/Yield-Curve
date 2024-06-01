@@ -17,11 +17,12 @@ public class YieldCurve {
         entries.put(key, value);
     }
 
-    private double requestBeyondLastDate(LocalDate date,Level level){
+    private double requestBeyondLastDate(LocalDate date, Level level) {
         return switch (level) {
             case BID -> entries.get(date).getFirst();
             case ASK -> entries.get(date).getLast();
-            default -> 0.5 * (entries.get(date).getLast() - entries.get(date).getFirst())+entries.get(date).getFirst();
+            default ->
+                    0.5 * (entries.get(date).getLast() - entries.get(date).getFirst()) + entries.get(date).getFirst();
         };
     }
 
@@ -31,9 +32,9 @@ public class YieldCurve {
             throw new YieldCurveException("Request date is before the smallest date in dataset");
         }
         // early exit if request > last date in dataset
-        if(request.isAfter(entries.lastKey())){
+        if (request.isAfter(entries.lastKey())) {
             request = entries.lastKey();
-            return requestBeyondLastDate(request,level);
+            return requestBeyondLastDate(request, level);
         }
         Map.Entry<LocalDate, List<Double>> start = entries.lowerEntry(request);
         Map.Entry<LocalDate, List<Double>> end = entries.higherEntry(request);
@@ -66,10 +67,10 @@ public class YieldCurve {
                 return interpolate(point1, point2, x);
             }
             default -> {
-                Double[] arrayP1 = {0.0, 0.5 * (startValues.getLast() - startValues.getFirst())+startValues.getFirst()}; // x,y point1
+                Double[] arrayP1 = {0.0, 0.5 * (startValues.getLast() - startValues.getFirst()) + startValues.getFirst()}; // x,y point1
                 List<Double> point1 = Arrays.asList(arrayP1);
 
-                Double[] arrayP2 = {endDate, 0.5 * (startValues.getLast() - startValues.getFirst())+endValues.getFirst()}; // (ASK-bid)/2
+                Double[] arrayP2 = {endDate, 0.5 * (startValues.getLast() - startValues.getFirst()) + endValues.getFirst()}; // (ASK-bid)/2
                 List<Double> point2 = Arrays.asList(arrayP2);
 
                 return interpolate(point1, point2, x);
