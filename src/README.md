@@ -1,2 +1,0 @@
-# Yield Curve
-## Efficiency Mechanisms
