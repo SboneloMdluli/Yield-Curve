@@ -29,7 +29,7 @@ public class YieldCurve {
     if (entries.size() == 1) {
       this.frequency = ChronoUnit.DAYS.between(startDate, date);
     }
-    this.entries.put(entries.size() * frequency, value);
+    this.entries.put(getNumberOfDays(date), value);
   }
 
   /**

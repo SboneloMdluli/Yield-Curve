@@ -12,6 +12,7 @@ public class Main {
 
     LocalDate date1 = LocalDate.of(2024, 5, 17);
     LocalDate date2 = LocalDate.of(2024, 8, 15);
+
     LocalDate date3 = LocalDate.of(2024, 11, 13);
     LocalDate date4 = LocalDate.of(2025, 2, 11);
     LocalDate date5 = LocalDate.of(2025, 5, 12);
