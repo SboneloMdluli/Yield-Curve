@@ -12,7 +12,6 @@ public class Main {
 
     LocalDate date1 = LocalDate.of(2024, 5, 17);
     LocalDate date2 = LocalDate.of(2024, 8, 15);
-
     LocalDate date3 = LocalDate.of(2024, 11, 13);
     LocalDate date4 = LocalDate.of(2025, 2, 11);
     LocalDate date5 = LocalDate.of(2025, 5, 12);
@@ -33,7 +32,7 @@ public class Main {
 
     LocalDate test = LocalDate.of(2024, 9, 16);
     try {
-      System.out.println(yieldCurve.getRate(test, Level.ASK)); // date and
+      System.out.println(yieldCurve.getRate(test, Level.ASK)); // date and level
     } catch (YieldCurveException e) {
       throw new YieldCurveException(e.getMessage());
     }
