@@ -15,7 +15,7 @@ The frequency is determined from the first and second entries thereafter the dat
 
 We throw a `YieldCurveException` whenever an attempty is made to interpolate a date before the start date and linear interpolates for dates after the last date in the yield curve.
 
-For more relaxed contrains such as variable frequency and random insersions of data one can use a Red-Black tree (TreeMap in java) to find $k_l$ and $k_h$ in $`O(logn)`$ making `getRate` $`O(logn)`$. Using a Hashmap in this scenario would make `getRate` $`O(n)`$ since this would require iterating through the data strucutre to find these keys. The solution making use of the TreeMap can be found in the _discuss_ branch.
+For more relaxed contrains such as variable frequency and random insersions of data one can use a Red-Black tree (TreeMap in java) to find $k_l$ and $k_h$ in $`O(logn)`$ making `getRate` $`O(logn)`$. Using a Hashmap in this scenario would make `getRate` $`O(n)`$ since this would require iterating through the data strucutre to find these keys and sorting the data to perform binary search will reuslt in worse performance since sorting is $`O(nlogn)`$. The solution making use of the TreeMap can be found in the _discuss_ branch.
 
 ## Data Structures
 
